@@ -11,8 +11,8 @@ services:
  
   mydb:
     image: stackupiss/northwind-db:v1
-    build:
-      context: database
+    # build:
+    #   context: database
     container_name: mydb
     networks:
       - mynet
@@ -25,8 +25,8 @@ services:
  
   myapp:
     image: stackupiss/northwind-app:v1
-    build:
-      context: server
+    # build:
+    #   context: server
     container_name: myapp
     networks:
       - mynet
