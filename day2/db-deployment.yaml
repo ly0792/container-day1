@@ -1,0 +1,26 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: bgg-database
+  namespace: bggns
+  labels:
+    app: bgg-database
+    name: bgg-database
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: bgg-database
+  template: 
+    metadata:
+      namespace: bggns
+      labels:
+        app: bgg-database
+        name: bgg-database
+    spec:
+      containers:
+      - name: bgg-database
+        image: stackupiss/bgg-database:v1
+        ports:
+        - containerPort: 3306
