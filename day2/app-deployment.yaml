@@ -9,7 +9,6 @@ metadata:
     name: bggapp-deploy
 spec:
   replicas: 3
-  minReadySeconds: 10
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -62,20 +61,3 @@ spec:
   ports:
     - port: 80
       targetPort: app-port
-
----
-apiVersion: v1
-kind: Service
-metadata: 
-  name: bggdb-svc
-  namespace: bggns
-  labels:
-    app: bgg-database
-    name: bggdb-svc
-spec:
-  type: ClusterIP
-  selector: 
-    app: bgg-database
-  ports:
-    - port: 3306
-      targetPort: 3306
